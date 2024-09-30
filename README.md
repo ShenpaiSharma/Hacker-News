@@ -38,7 +38,7 @@ npm run dev
 
 4. Build for production
 ```bash
-pnpm run build
+npm run build
 ```
 
 ## APIs
