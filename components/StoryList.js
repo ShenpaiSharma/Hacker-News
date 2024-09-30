@@ -8,7 +8,7 @@ const StoryList = ({ stories, page }) => (
                 <div className="index">{(page - 1) * 30 + (i + 1)}.</div>
                 <div className="story-content">
                     <h2 className="story-title">
-                        <Link legacyBehavior href={`/login`}>
+                        <Link legacyBehavior href="/login">
                             <span className="upvote-arrow"></span>
                         </Link>
                         <a href={story.url}>
@@ -25,7 +25,7 @@ const StoryList = ({ stories, page }) => (
                         </Link>
                         <span>{story.time ? Math.floor((Math.floor(Date.now() / 1000) - story.time) / 3600) : '_'} hours ago</span>
                         <span>|</span>
-                        <Link legacyBehavior href={`/login`}>
+                        <Link legacyBehavior href="/login">
                             <a>hide </a>
                         </Link>
                         <span>|</span>
@@ -44,6 +44,7 @@ const StoryList = ({ stories, page }) => (
                 display: flex;
                 align-items: flex-start;
                 padding: 0.3em 0;
+                flex-wrap: wrap; /* Allow wrapping */
             }
             .index {
                 color: #828282;
@@ -54,6 +55,8 @@ const StoryList = ({ stories, page }) => (
             }
             .story-content {
                 flex: 1;
+                word-wrap: break-word; /* Ensure long words break */
+                overflow-wrap: break-word; /* Support for modern browsers */
             }
             .story-title {
                 font-size: 13.333px;
@@ -95,6 +98,29 @@ const StoryList = ({ stories, page }) => (
                 font-size: 0.6rem;
                 color: #828282;
                 cursor: pointer;
+            }
+
+            /* Responsive styles for mobile and tablet */
+            @media (max-width: 768px) {
+                .story {
+                    flex-direction: column; /* Stack elements vertically */
+                    padding: 0.5em 0; /* More padding for touch targets */
+                }
+                .story-title {
+                    font-size: 14px; /* Slightly larger for readability */
+                }
+                .story-details {
+                    font-size: 0.8rem; /* Slightly larger for readability */
+                }
+            }
+
+            @media (max-width: 480px) {
+                .story-title {
+                    font-size: 16px; /* Further increase for small screens */
+                }
+                .story-details {
+                    font-size: 0.9rem; /* Further increase for small screens */
+                }
             }
         `}</style>
     </div>
