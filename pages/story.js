@@ -1,3 +1,5 @@
+require('dotenv').config(); 
+
 import React from "react";
 import fetch from "isomorphic-fetch";
 import Error from "next/error";
@@ -11,13 +13,13 @@ class Story extends React.Component {
 
         try {
             const storyId = query.id;
-            const response = await fetch(`${process.env.NEXT_PUBLIC_HN_API_BASE}item/${storyId}.json?print=pretty`);
+            const response = await fetch(`${NEXT_PUBLIC_HN_API_BASE}item/${storyId}.json?print=pretty`);
             story = await response.json();
 
             // If the story has kids (comments), fetch each one
             if (story.kids && story.kids.length > 0) {
                 const commentPromises = story.kids.map(async (kidId) => {
-                    const commentResponse = await fetch(`${process.env.NEXT_PUBLIC_HN_API_BASE}item/${kidId}.json?print=pretty`);
+                    const commentResponse = await fetch(`${NEXT_PUBLIC_HN_API_BASE}item/${kidId}.json?print=pretty`);
                     return await commentResponse.json();
                 });
 
