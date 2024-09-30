@@ -19,25 +19,28 @@
 
 Requires Node.js 18.17 or later.
 
-0. Clone the project.
+1. Clone the project.
 ```bash
 git clone https://github.com/WhiteDG/nextjs-hackernews.git](https://github.com/ShenpaiSharma/Hacker-News.git
 ```
 ```
 cd Hacker-News
 ```
-
-1. Install dependencies.
+2. Copy `.env.example` to `.env.local` and update the variables.
+```bash
+cp .env.example .env.local
+```
+3. Install dependencies.
 ```bash
 npm install
 ```
-2. Run the development server with hot reload.
+4. Run the development server with hot reload.
 ```bash
 npm run dev
 ```
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-4. Build for production
+6. Build for production
 ```bash
 npm run build
 ```
