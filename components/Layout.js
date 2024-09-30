@@ -115,7 +115,8 @@ const Layout = ({ children, title }) => (
 
             @media (max-width: 768px) {
                 .container {
-                    width: 100%; /* Make container full width */
+                    width: 100vw; /* Make container full width */
+                    height: auto; /* Allow height to adjust */
                     padding: 0; /* Remove padding */
                 }
                 .content {
