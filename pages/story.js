@@ -16,14 +16,12 @@ class Story extends React.Component {
             const response = await fetch(`${process.env.NEXT_PUBLIC_HN_API_BASE}item/${storyId}.json?print=pretty`);
             story = await response.json();
 
-            // If the story has kids (comments), fetch each one
             if (story.kids && story.kids.length > 0) {
                 const commentPromises = story.kids.map(async (kidId) => {
                     const commentResponse = await fetch(`${process.env.NEXT_PUBLIC_HN_API_BASE}item/${kidId}.json?print=pretty`);
                     return await commentResponse.json();
                 });
 
-                // Wait for all comment promises to resolve
                 comments = await Promise.all(commentPromises);
             }
         } catch (err) {
@@ -31,7 +29,6 @@ class Story extends React.Component {
             story = null;
         }
 
-        // Return both the story and the comments
         return { story, comments };
     }
 
@@ -45,26 +42,28 @@ class Story extends React.Component {
         return (
             <Layout title={story.title}>
                 <main>
-                    <h1 className="story-title">
-                        <a href={story.url}>{story.title}</a>
-                        <div className="story-details">
-                            <p>{story.score} score</p>
-                            <p>by {story.by}</p>
-                            <p>{story.time}</p>
-                        </div>
-                    </h1>
-                    <h2>Comments</h2>
-                    {comments.length > 0 ? (
-                        <ul>
-                            {comments.map((comment) => (
-                                <li key={comment.id}>
-                                    <p>{comment.by}</p>: {comment.text}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>No comments available.</p>
-                    )}
+                    <div className="container">
+                        <h1 className="story-title">
+                            <a href={story.url}>{story.title}</a>
+                            <div className="story-details">
+                                <p>{story.score} score</p>
+                                <p>by {story.by}</p>
+                                <p>{story.time}</p>
+                            </div>
+                        </h1>
+                        <h2>Comments</h2>
+                        {comments.length > 0 ? (
+                            <ul>
+                                {comments.map((comment) => (
+                                    <li key={comment.id}>
+                                        <p>{comment.by}</p>: {comment.text}
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>No comments available.</p>
+                        )}
+                    </div>
                 </main>
                 <Footernav />
 
@@ -72,8 +71,13 @@ class Story extends React.Component {
                     main {
                         padding: 1em;
                     }
+                    .container {
+                        max-width: 800px; /* Set a max width for the container */
+                        margin: 0 auto; /* Center the container */
+                        padding: 0 1em; /* Add horizontal padding */
+                    }
                     .story-title {
-                        font-size: 1em;
+                        font-size: 1.5em; /* Increased title size for better visibility */
                         margin: 0;
                         font-weight: 300;
                         padding-bottom: 0.5em;

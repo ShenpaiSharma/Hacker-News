@@ -108,12 +108,17 @@ const Layout = ({ children, title }) => (
             }
             /* Responsive styles for mobile and tablet */
             @media (max-width: 768px) {
+                .container {
+                    max-width: 100%;
+                    margin: 0 auto;
+                    background: #f6f6ef;
+                }
                 .story-list {
-                    padding: 0; /* No padding on mobile */
+                    padding: 0;
                 }
                 .story {
-                    flex-direction: column; /* Stack elements vertically */
-                    padding: 0.5em 0; /* More padding for touch targets */
+                    flex-direction: column;
+                    padding: 0.5em 0;
                 }
                 .story-title {
                     font-size: 14px; /* Adjust as needed */
@@ -124,6 +129,11 @@ const Layout = ({ children, title }) => (
             }
 
             @media (max-width: 480px) {
+                .container {
+                    max-width: 100%;
+                    margin: 0 auto;
+                    background: #f6f6ef;
+                }
                 .story-title {
                     font-size: 16px; /* Further increase for small screens */
                 }
