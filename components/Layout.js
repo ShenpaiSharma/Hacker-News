@@ -76,7 +76,7 @@ const Layout = ({ children, title }) => (
             }
             nav {
                 background: #f60;
-                padding: 0.5em; /* Reduced padding for mobile */
+                padding: 0.1em;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -93,7 +93,7 @@ const Layout = ({ children, title }) => (
                 font-size: 14px;
                 text-decoration: none;
                 color: black;
-                padding: 0.5em; /* Adjusted padding for better spacing */
+                padding-top: 0.1em;
             }
             nav a:hover {
                 color: white;
@@ -118,10 +118,14 @@ const Layout = ({ children, title }) => (
                     width: 100%; /* Make container full width */
                     height: auto; /* Allow height to adjust */
                     padding: 0; /* Remove padding */
+                    margin: 0;
+                }
+                .content {
+                    padding: 1em; /* Ensure content has some padding */
                 }
                 nav {
-                    flex-direction: column; /* Stack items vertically */
-                    padding: 0.3em; /* Adjusted padding for compactness */
+                    flex-direction: column;
+                    align-items: flex-start;
                 }
                 .left-links {
                     width: 100%;
@@ -132,18 +136,22 @@ const Layout = ({ children, title }) => (
                     align-self: flex-end;
                 }
                 nav a {
-                    font-size: 16px; /* Adjust font size */
-                    padding: 0.2em 0; /* Reduced padding for mobile */
+                    font-size: 16px;
                 }
                 .logo {
-                    width: 24px; /* Increased logo size for visibility */
+                    width: 24px;
                     height: 24px;
                 }
             }
 
             @media (max-width: 480px) {
+                .container {
+                    width: 100%; /* Make container full width */
+                    height: auto; /* Allow height to adjust */
+                    padding: 0; /* Remove padding */
+                }
                 nav {
-                    padding: 0.2em; /* Further reduce padding on very small screens */
+                    padding: 0.5em;
                 }
                 .left-links {
                     flex-direction: column;
@@ -153,8 +161,8 @@ const Layout = ({ children, title }) => (
                     align-self: flex-start;
                 }
                 nav a {
-                    font-size: 18px; /* Larger font size for readability */
-                    padding: 0.2em 0; /* Consistent padding */
+                    font-size: 18px;
+                    padding: 0.3em 0;
                 }
             }
         `}</style>
