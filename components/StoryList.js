@@ -55,8 +55,8 @@ const StoryList = ({ stories, page }) => (
             }
             .story-content {
                 flex: 1;
-                word-wrap: break-word; /* Ensure long words break */
-                overflow-wrap: break-word; /* Support for modern browsers */
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
             .story-title {
                 font-size: 14px;
@@ -103,23 +103,23 @@ const StoryList = ({ stories, page }) => (
             /* Responsive styles for mobile and tablet */
             @media (max-width: 768px) {
                 .story {
-                    flex-direction: column; /* Stack elements vertically */
-                    padding: 0.5em 0; /* More padding for touch targets */
+                    flex-direction: column;
+                    padding: 0.5em 0;
                 }
                 .story-title {
-                    font-size: 14px; /* Slightly larger for readability */
+                    font-size: 14px;
                 }
                 .story-details {
-                    font-size: 0.8rem; /* Slightly larger for readability */
+                    font-size: 0.8rem;
                 }
             }
 
             @media (max-width: 480px) {
                 .story-title {
-                    font-size: 16px; /* Further increase for small screens */
+                    font-size: 16px;
                 }
                 .story-details {
-                    font-size: 0.9rem; /* Further increase for small screens */
+                    font-size: 0.9rem;
                 }
             }
         `}</style>

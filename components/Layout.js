@@ -109,26 +109,26 @@ const Layout = ({ children, title }) => (
             /* Responsive styles for mobile and tablet */
             @media (max-width: 768px) {
                 .story-list {
-                    padding: 0; /* No padding on mobile */
+                    padding: 0;
                 }
                 .story {
-                    flex-direction: column; /* Stack elements vertically */
-                    padding: 0.5em 0; /* More padding for touch targets */
+                    flex-direction: column;
+                    padding: 0.5em 0;
                 }
                 .story-title {
-                    font-size: 14px; /* Adjust as needed */
+                    font-size: 14px;
                 }
                 .story-details {
-                    font-size: 0.8rem; /* Adjust as needed */
+                    font-size: 0.8rem;
                 }
             }
 
             @media (max-width: 480px) {
                 .story-title {
-                    font-size: 16px; /* Further increase for small screens */
+                    font-size: 16px;
                 }
                 .story-details {
-                    font-size: 0.9rem; /* Further increase for small screens */
+                    font-size: 0.9rem;
                 }
             }
         }</style>
