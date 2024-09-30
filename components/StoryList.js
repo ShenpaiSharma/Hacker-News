@@ -59,7 +59,7 @@ const StoryList = ({ stories, page }) => (
                 overflow-wrap: break-word; /* Support for modern browsers */
             }
             .story-title {
-                font-size: 13.333px;
+                font-size: 14px;
                 font-weight: 400;
                 margin: 0;
                 margin-bottom: 0.5em;
@@ -72,7 +72,7 @@ const StoryList = ({ stories, page }) => (
                 text-decoration: underline;
             }
             .story-details {
-                font-size: 0.6rem;
+                font-size: 0.7rem;
                 color: #828282;
             }
             .story-details span {

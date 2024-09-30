@@ -58,18 +58,13 @@ const Layout = ({ children, title }) => (
                     </Link>
                 </div>
             </nav>
-            <div className="content">
-                {children}
-            </div>
+            {children}
         </div>
         <style jsx>{`
             .container {
-                max-width: 1200px;
+                max-width: 90%;
                 margin: 0 auto;
                 background: #f6f6ef;
-            }
-            .content {
-                padding: 1em;
             }
             .container span {
                 margin-right: 0.5em;
@@ -84,13 +79,12 @@ const Layout = ({ children, title }) => (
             .left-links {
                 display: flex;
                 align-items: center;
-                flex-wrap: wrap;
             }
             .right-links {
                 margin-left: auto;
             }
             nav a {
-                font-size: 14px;
+                font-size: 15px;
                 text-decoration: none;
                 color: black;
                 padding-top: 0.1em;
@@ -112,61 +106,33 @@ const Layout = ({ children, title }) => (
                 margin: 0 0.1em;
                 line-height: 1;
             }
-
+            /* Responsive styles for mobile and tablet */
             @media (max-width: 768px) {
-                .container {
-                    width: 100%; /* Make container full width */
-                    height: auto; /* Allow height to adjust */
-                    padding: 0; /* Remove padding */
-                    margin: 0;
+                .story-list {
+                    padding: 0; /* No padding on mobile */
                 }
-                .content {
-                    padding: 1em; /* Ensure content has some padding */
+                .story {
+                    flex-direction: column; /* Stack elements vertically */
+                    padding: 0.5em 0; /* More padding for touch targets */
                 }
-                nav {
-                    flex-direction: column;
-                    align-items: flex-start;
+                .story-title {
+                    font-size: 14px; /* Adjust as needed */
                 }
-                .left-links {
-                    width: 100%;
-                    justify-content: space-around;
-                    margin-bottom: 0.5em;
-                }
-                .right-links {
-                    align-self: flex-end;
-                }
-                nav a {
-                    font-size: 16px;
-                }
-                .logo {
-                    width: 24px;
-                    height: 24px;
+                .story-details {
+                    font-size: 0.8rem; /* Adjust as needed */
                 }
             }
 
             @media (max-width: 480px) {
-                .container {
-                    width: 100%; /* Make container full width */
-                    height: auto; /* Allow height to adjust */
-                    padding: 0; /* Remove padding */
+                .story-title {
+                    font-size: 16px; /* Further increase for small screens */
                 }
-                nav {
-                    padding: 0.5em;
-                }
-                .left-links {
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
-                .right-links {
-                    align-self: flex-start;
-                }
-                nav a {
-                    font-size: 18px;
-                    padding: 0.3em 0;
+                .story-details {
+                    font-size: 0.9rem; /* Further increase for small screens */
                 }
             }
-        `}</style>
-        <style global jsx>{`
+        }</style>
+        <style global jsx>{
             body {
                 background: white;
                 font-family: Verdana, Geneva, sans-serif;
