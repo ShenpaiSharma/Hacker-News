@@ -1,0 +1,17 @@
+{
+  "name": "hacker-next",
+  "version": "1.0.0",
+  "description": "Hacker New Clone",
+  "main": "server.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0",
+    "next": "^14.2.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
