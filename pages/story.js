@@ -72,7 +72,7 @@ class Story extends React.Component {
                         padding: 1em;
                     }
                     .container {
-                        max-width: 800px; /* Set a max width for the container */
+                        max-width: 90%; /* Set a max width for the container */
                         margin: 0 auto; /* Center the container */
                         padding: 0 1em; /* Add horizontal padding */
                     }
@@ -109,6 +109,36 @@ class Story extends React.Component {
                         margin-bottom: 10px;
                         font-size: 0.8rem;
                         color: #828282;
+                    }
+                    @media (max-width: 768px) {
+                        .container {
+                            max-width: 100%;
+                            margin: 0 auto;
+                            background: #f6f6ef;
+                        }
+                        ul {
+                            padding-left: 20px;
+                        }
+                        li {
+                            margin-bottom: 10px;
+                            font-size: 0.8rem;
+                            color: #828282;
+                        }
+                    }
+                    @media (max-width: 480px) {
+                        .container {
+                            max-width: 100%;
+                            margin: 0 auto;
+                            background: #f6f6ef;
+                        }
+                        ul {
+                            padding-left: 20px;
+                        }
+                        li {
+                            margin-bottom: 10px;
+                            font-size: 0.8rem;
+                            color: #828282;
+                        }
                     }
                 `}</style>
             </Layout>
