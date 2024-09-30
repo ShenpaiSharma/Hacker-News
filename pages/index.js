@@ -17,11 +17,11 @@ class DynamicStoryPage extends React.Component {
         const page = Number(query.page) || 1;
 
         const endpointMap = {
-            '/': NEXT_PUBLIC_HN_TOP_STORIES,
-            '/newpost': NEXT_PUBLIC_HN_NEW_STORIES,
-            '/toppost': NEXT_PUBLIC_HN_TOP_STORIES,
-            '/askspost': NEXT_PUBLIC_HN_ASK_STORIES,
-            '/jobspost': NEXT_PUBLIC_HN_JOB_STORIES,
+            '/': process.env.NEXT_PUBLIC_HN_TOP_STORIES,
+            '/newpost': process.env.NEXT_PUBLIC_HN_NEW_STORIES,
+            '/toppost': process.env.NEXT_PUBLIC_HN_TOP_STORIES,
+            '/askspost': process.env.NEXT_PUBLIC_HN_ASK_STORIES,
+            '/jobspost': process.env.NEXT_PUBLIC_HN_JOB_STORIES,
         };
 
         const apiUrl = endpointMap[pathname] || endpointMap['/'];

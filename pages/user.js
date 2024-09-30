@@ -12,7 +12,7 @@ class Story extends React.Component {
         console.log(query);
         try {
             const storyId = query.id;
-            const response = await fetch(`${NEXT_PUBLIC_HN_API_BASE}user/${storyId}.json?print=pretty`);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_HN_API_BASE}user/${storyId}.json?print=pretty`);
             story = await response.json();
             console.log(story);
         } catch (err) {
