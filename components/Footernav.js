@@ -33,7 +33,7 @@ const Footernav = () => (
         <div className="search-box">
             Search: <input type="text" />
         </div>
-        <style>{`
+        <style jsx>{`
             .bold-line {
                 border: none;
                 height: 4px;

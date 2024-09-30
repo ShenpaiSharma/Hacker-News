@@ -55,7 +55,7 @@ class Story extends React.Component {
                 </main>
                 <Footernav />
 
-                <style>{`
+                <style jsx>{`
                     main {
                         padding: 1em;
                     }

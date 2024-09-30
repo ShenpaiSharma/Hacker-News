@@ -79,6 +79,7 @@ const Layout = ({ children, title }) => (
             .left-links {
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
             }
             .right-links {
                 margin-left: auto;
@@ -105,6 +106,49 @@ const Layout = ({ children, title }) => (
                 vertical-align: middle;
                 margin: 0 0.1em;
                 line-height: 1;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    max-width: 100%;
+                    padding: 0 1em;
+                }
+                nav {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .left-links {
+                    width: 100%;
+                    justify-content: space-around;
+                    margin-bottom: 0.5em;
+                }
+                .right-links {
+                    align-self: flex-end;
+                }
+                nav a {
+                    font-size: 16px;
+                }
+                .logo {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                nav {
+                    padding: 0.5em;
+                }
+                .left-links {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .right-links {
+                    align-self: flex-start;
+                }
+                nav a {
+                    font-size: 18px;
+                    padding: 0.3em 0;
+                }
             }
         `}</style>
         <style global jsx>{`
