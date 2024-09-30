@@ -58,13 +58,18 @@ const Layout = ({ children, title }) => (
                     </Link>
                 </div>
             </nav>
-            {children}
+            <div className="content">
+                {children}
+            </div>
         </div>
         <style jsx>{`
             .container {
                 max-width: 1200px;
                 margin: 0 auto;
                 background: #f6f6ef;
+            }
+            .content {
+                padding: 1em;
             }
             .container span {
                 margin-right: 0.5em;
@@ -110,8 +115,11 @@ const Layout = ({ children, title }) => (
 
             @media (max-width: 768px) {
                 .container {
-                    max-width: 100%;
-                    padding: 0 1em;
+                    width: 100%; /* Make container full width */
+                    padding: 0; /* Remove padding */
+                }
+                .content {
+                    padding: 1em; /* Ensure content has some padding */
                 }
                 nav {
                     flex-direction: column;
