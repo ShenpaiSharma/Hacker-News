@@ -16,12 +16,14 @@ class Story extends React.Component {
             const response = await fetch(`${process.env.NEXT_PUBLIC_HN_API_BASE}item/${storyId}.json?print=pretty`);
             story = await response.json();
 
+            // If the story has kids (comments), fetch each one
             if (story.kids && story.kids.length > 0) {
                 const commentPromises = story.kids.map(async (kidId) => {
                     const commentResponse = await fetch(`${process.env.NEXT_PUBLIC_HN_API_BASE}item/${kidId}.json?print=pretty`);
                     return await commentResponse.json();
                 });
 
+                // Wait for all comment promises to resolve
                 comments = await Promise.all(commentPromises);
             }
         } catch (err) {
@@ -29,6 +31,7 @@ class Story extends React.Component {
             story = null;
         }
 
+        // Return both the story and the comments
         return { story, comments };
     }
 
@@ -42,28 +45,26 @@ class Story extends React.Component {
         return (
             <Layout title={story.title}>
                 <main>
-                    <div className="container">
-                        <h1 className="story-title">
-                            <a href={story.url}>{story.title}</a>
-                            <div className="story-details">
-                                <p>{story.score} score</p>
-                                <p>by {story.by}</p>
-                                <p>{story.time}</p>
-                            </div>
-                        </h1>
-                        <h2>Comments</h2>
-                        {comments.length > 0 ? (
-                            <ul>
-                                {comments.map((comment) => (
-                                    <li key={comment.id}>
-                                        <p>{comment.by}</p>: {comment.text}
-                                    </li>
-                                ))}
-                            </ul>
-                        ) : (
-                            <p>No comments available.</p>
-                        )}
-                    </div>
+                    <h1 className="story-title">
+                        <a href={story.url}>{story.title}</a>
+                        <div className="story-details">
+                            <p>{story.score} score</p>
+                            <p>by {story.by}</p>
+                            <p>{story.time}</p>
+                        </div>
+                    </h1>
+                    <h2>Comments</h2>
+                    {comments.length > 0 ? (
+                        <ul>
+                            {comments.map((comment) => (
+                                <li key={comment.id}>
+                                    <p>{comment.by}</p>: {comment.text}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No comments available.</p>
+                    )}
                 </main>
                 <Footernav />
 
@@ -71,13 +72,8 @@ class Story extends React.Component {
                     main {
                         padding: 1em;
                     }
-                    .container {
-                        max-width: 90%; /* Set a max width for the container */
-                        margin: 0 auto; /* Center the container */
-                        padding: 0 1em; /* Add horizontal padding */
-                    }
                     .story-title {
-                        font-size: 1.5em; /* Increased title size for better visibility */
+                        font-size: 1em;
                         margin: 0;
                         font-weight: 300;
                         padding-bottom: 0.5em;
@@ -109,36 +105,6 @@ class Story extends React.Component {
                         margin-bottom: 10px;
                         font-size: 0.8rem;
                         color: #828282;
-                    }
-                    @media (max-width: 768px) {
-                        .container {
-                            max-width: 100%;
-                            margin: 0 auto;
-                            background: #f6f6ef;
-                        }
-                        ul {
-                            padding-left: 20px;
-                        }
-                        li {
-                            margin-bottom: 10px;
-                            font-size: 0.8rem;
-                            color: #828282;
-                        }
-                    }
-                    @media (max-width: 480px) {
-                        .container {
-                            max-width: 100%;
-                            margin: 0 auto;
-                            background: #f6f6ef;
-                        }
-                        ul {
-                            padding-left: 20px;
-                        }
-                        li {
-                            margin-bottom: 10px;
-                            font-size: 0.8rem;
-                            color: #828282;
-                        }
                     }
                 `}</style>
             </Layout>
