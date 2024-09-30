@@ -22,7 +22,8 @@ Requires Node.js 18.17 or later.
 0. Clone the project.
 ```bash
 git clone https://github.com/WhiteDG/nextjs-hackernews.git](https://github.com/ShenpaiSharma/Hacker-News.git
-
+```
+```
 cd Hacker-News
 ```
 
