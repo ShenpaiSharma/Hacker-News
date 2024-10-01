@@ -58,7 +58,7 @@ class Story extends React.Component {
                         <ul>
                             {comments.map((comment) => (
                                 <li key={comment.id}>
-                                    <p>{comment.by}</p>: {comment.text}
+                                    <p>{comment.by}</p>: {comment.text ? comment.text.replace(/&#\d+;/g, '').replace(/https?:\/\/[^\s]+/g, '').replace(/[^a-zA-Z0-9.,\s-]/g, '').replace(/\s+/g, ' ').trim().split(' ').filter(word => word.length <= 15).slice(0, 50).join(' ') : ' '}
                                 </li>
                             ))}
                         </ul>
