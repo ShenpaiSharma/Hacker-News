@@ -1,20 +1,3 @@
-## Features
-
-- Next.js App Router
-- React Server Components (RSCs) and Suspense
-- Server Actions for mutations
-- Beautifully designed components from shadcn/ui
-- Styling with Tailwind CSS
-- Browse stories: Top, Newest, Best, Show, Ask, Jobs.
-- Search for stories.
-- User authentication: Create an account or log in using your Hacker News account to access personalized features.
-- Mark stories as favorite.
-- Upvote stories or comments.
-- Add comments.
-- View user profile: About, Submitted, Comments, Favorites, Upvoted(private).
-- Responsive design: Friendly to both mobile and desktop.
-- Automatic light/dark mode based on system settings.
-
 ## Running Locally
 
 Requires Node.js 18.17 or later.
@@ -45,9 +28,33 @@ npm run dev
 npm run build
 ```
 
+## Deployed Version
+
+You can view the live version of this Hacker News clone at the following link: [Hacker News Clone](https://hacker-news-eight-iota.vercel.app/). This allows you to interact with the app without running it locally.
+
+
 ## APIs
 This project leverages the power of various APIs to provide an enriched user experience:
 - [HackerNews Official API](https://github.com/HackerNews/API)
   - Get stories
   - Get comments
   - Get user profiles
+ 
+# Hacker News Clone Documentation
+
+## Features
+
+This Hacker News clone is built with modern web technologies and includes the following features:
+
+- **Next.js App Router:** This feature allows for smooth and fast navigation between different pages in the application.
+
+- **Beautifully Designed Components:** The app has an attractive and user-friendly design, making it visually appealing.
+
+- **Story Browsing:** Users can explore stories by different categories:
+  - **Top:** The stories that have received the most votes.
+  - **Newest:** The latest submissions to the site.
+  - **Best:** Stories that are rated highly by users.
+  - **Ask:** Questions that users have posted.
+  - **Jobs:** Job listings from various companies.
+
+- **Responsive Design:** The application looks good and functions well on both mobile and desktop devices, adapting to different screen sizes.
