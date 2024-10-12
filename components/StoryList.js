@@ -15,7 +15,7 @@ const StoryList = ({ stories, page }) => (
                             {story.title}
                         </a>
                         <a className="url-link">
-                            &nbsp;({story.url ? (story.url).replace(/^https?:\/\//, '').replace(/\.com/g, '') : ''})
+                            &nbsp;({story.url ? (story.url).replace(/^https?:\/\//, '').replace(/\.com/g, '').substring(0, 30) : ''})
                         </a>
                     </h2>
                     <div className="story-details">
